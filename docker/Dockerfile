@@ -1,8 +1,8 @@
 FROM ubuntu:18.04
 
-RUN echo "resolvconf resolvconf/linkify-resolvconf boolean false" | debconf-set-selections
+#RUN echo "resolvconf resolvconf/linkify-resolvconf boolean false" | debconf-set-selections
 
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install \
+RUN apt-get update && apt-get -y install \
   wget \
   dialog \
   openssh-client \
@@ -14,7 +14,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install \
   rsyslog \
   unzip
 
-VOLUME ["/opt/zimbra"]
+VOLUME ["/opt/zimbra-install"]
 
 EXPOSE 22 25 465 587 110 143 993 995 80 443 8080 8443 7071
 
