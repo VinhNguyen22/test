@@ -5,10 +5,10 @@ FROM ubuntu:18.04
 RUN apt-get update && apt-get -y install \
   wget \
   dialog \
-  openssh-client \
+  #openssh-client \
   software-properties-common \
-  dnsmasq \
-  dnsutils \
+  #dnsmasq \
+  #dnsutils \
   net-tools \
   sudo \
   rsyslog \
