@@ -2,24 +2,21 @@
 ## Preparing all the variables like IP, Hostname, etc, all of them from the container
 sleep 5
 HOSTNAME=$(hostname -a)
-DOMAIN=$(hostname -d)
+DOMAIN=$(hostname -f)
 CONTAINERIP=$(ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1  -d'/')
 RANDOMHAM=$(date +%s|sha256sum|base64|head -c 10)
 RANDOMSPAM=$(date +%s|sha256sum|base64|head -c 10)
 RANDOMVIRUS=$(date +%s|sha256sum|base64|head -c 10)
 
 ## Installing the DNS Server ##
-echo "Configuring DNS Server"
-mv /etc/dnsmasq.conf /etc/dnsmasq.conf.old
-cat <<EOF >>/etc/dnsmasq.conf
-server=8.8.8.8
-listen-address=127.0.0.1
-domain=$DOMAIN
-mx-host=$DOMAIN,$HOSTNAME.$DOMAIN,0
-address=/$HOSTNAME.$DOMAIN/$CONTAINERIP
-user=root
+# echo "Configuring DNS Server"
+# mv /etc/dnsmasq.conf /etc/dnsmasq.conf.old
+cat <<EOF >>/etc/resolv.conf
+nameserver 172.29.139.30
+nameserver 8.8.8.8
+#listen-address 127.0.0.1
 EOF
-sudo service dnsmasq restart
+# sudo service dnsmasq restart
 
 ##Creating the Zimbra Collaboration Config File ##
 touch /opt/zimbra-install/installZimbraScript
