@@ -130,7 +130,7 @@ wget  https://files.zimbra.com/downloads/9.0.0_GA/zcs-NETWORK-9.0.0_GA_4178.UBUN
 
 #-O /opt/zimbra-install/zimbra-zcs-8.8.15.tar.gz
 echo "Extracting files from the archive"
-tar -xzvf zcs-NETWORK-8.8.15_GA_3869.UBUNTU18_64.20190918004220.tgz 
+tar -xzvf zcs-NETWORK-9.0.0_GA_4178.UBUNTU20_64.20211112031526.tgz 
 #-C /opt/zimbra-install/
 
 rm -r zcs-NETWORK-9.0.0_GA_4178.UBUNTU20_64.20211112031526.tgz
