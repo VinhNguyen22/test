@@ -139,7 +139,7 @@ rm -r zcs-NETWORK-9.0.0_GA_4178.UBUNTU20_64.20211112031526.tgz
 
 echo "Installing Zimbra Collaboration just the Software"
 cd /opt/zimbra-install/zcs-NETWORK-9.0.0_GA_4178.UBUNTU20_64.20211112031526 
-./install.sh -s < /opt/zimbra-install/installZimbra-keystrokes
+./install.sh  < /opt/zimbra-install/installZimbra-keystrokes
 cd
 echo "Installing Zimbra Collaboration injecting the configuration"
 /opt/zimbra/libexec/zmsetup.pl -c /opt/zimbra-install/installZimbraScript
