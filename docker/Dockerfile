@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 #RUN echo "resolvconf resolvconf/linkify-resolvconf boolean false" | debconf-set-selections
 
