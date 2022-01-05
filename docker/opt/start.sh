@@ -124,20 +124,23 @@ zimbra_server_hostname="$HOSTNAME.$DOMAIN"
 INSTALL_PACKAGES="zimbra-core zimbra-ldap zimbra-logger zimbra-mta zimbra-snmp zimbra-store zimbra-apache zimbra-spell zimbra-memcached zimbra-proxy"
 EOF
 ##Install the Zimbra Collaboration ##
-echo "Downloading Zimbra Collaboration 8.8.15"
+echo "Downloading Zimbra Collaboration 9.0"
 cd /opt/zimbra-install
-wget  https://files.zimbra.com/downloads/8.8.15_GA/zcs-NETWORK-8.8.15_GA_3869.UBUNTU18_64.20190918004220.tgz
+wget  https://files.zimbra.com/downloads/9.0.0_GA/zcs-NETWORK-9.0.0_GA_4178.UBUNTU20_64.20211112031526.tgz
+
 #-O /opt/zimbra-install/zimbra-zcs-8.8.15.tar.gz
 echo "Extracting files from the archive"
 tar -xzvf zcs-NETWORK-8.8.15_GA_3869.UBUNTU18_64.20190918004220.tgz 
 #-C /opt/zimbra-install/
-rm -r zcs-NETWORK-8.8.15_GA_3869.UBUNTU18_64.20190918004220.tgz
+
+rm -r zcs-NETWORK-9.0.0_GA_4178.UBUNTU20_64.20211112031526.tgz
 #echo "Update package cache"
 #apt update
 
 echo "Installing Zimbra Collaboration just the Software"
-cd /opt/zimbra-install/zcs-* && ./install.sh -s < /opt/zimbra-install/installZimbra-keystrokes
-
+cd /opt/zimbra-install/zcs-NETWORK-9.0.0_GA_4178.UBUNTU20_64.20211112031526 
+./install.sh -s < /opt/zimbra-install/installZimbra-keystrokes
+cd
 echo "Installing Zimbra Collaboration injecting the configuration"
 /opt/zimbra/libexec/zmsetup.pl -c /opt/zimbra-install/installZimbraScript
 
